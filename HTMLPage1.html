@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar + Pages + Labs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .page {
+        display: none;
+      }
+
+      .active {
+        display: flex;
+      }
+
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+    </style>
+  </head>
+  <body class="bg-white min-h-screen flex flex-col">
+
+    <nav class="flex items-center justify-between px-6 py-3 border-b bg-white z-10">
+
+      <div class="flex items-center space-x-2">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg"
+          alt="logo"
+          class="h-8 w-8 rounded-full bg-black p-1"
+        />
+      </div>
+
+
+      <div class="flex items-center space-x-4 relative">
+        <button onclick="showPage('home')" class="px-4 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 transition">Home</button>
+
+
+        <div class="dropdown relative">
+          <button class="text-sm px-4 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 transition">labs</button>
+          <div class="dropdown-menu absolute top-full left-0 mt-1 w-32 bg-white border border-gray-300 shadow-lg hidden">
+            <button onclick="showPage('lab3')" class="block w-full border-b py-2 hover:bg-gray-100">Lab3</button>
+            <button onclick="showPage('lab4')" class="block w-full border-b py-2 hover:bg-gray-100">Lab4</button>
+            <button onclick="showPage('lab5')" class="block w-full border-b py-2 hover:bg-gray-100">Lab5</button>
+            <button onclick="showPage('lab6')" class="block w-full py-2 hover:bg-gray-100">Lab6</button>
+          </div>
+        </div>
+
+        <button onclick="showPage('login')" class="px-4 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 transition">LogIn</button>
+        <button onclick="showPage('logout')" class="px-4 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 transition">LogOut</button>
+      </div>
+    </nav>
+
+
+    <div class="flex-grow flex flex-col">
+
+      <div id="home" class="page active justify-center items-center flex-grow">
+        <h1 class="text-4xl font-bold">HOME</h1>
+      </div>
+
+
+      <div id="login" class="page justify-center items-center flex-grow">
+        <h1 class="text-4xl font-bold">LOGIN</h1>
+      </div>
+
+
+      <div id="logout" class="page justify-center items-center flex-grow">
+        <h1 class="text-4xl font-bold">LOGOUT</h1>
+      </div>
+
+
+      <div id="lab3" class="page justify-center items-center flex-grow">
+        <h1 class="text-3xl font-bold">Lab3</h1>
+      </div>
+
+      <div id="lab4" class="page justify-center items-center flex-grow">
+        <h1 class="text-3xl font-bold">Lab4</h1>
+      </div>
+
+      <div id="lab5" class="page justify-center items-center flex-grow">
+        <h1 class="text-3xl font-bold">Lab5</h1>
+      </div>
+
+      <div id="lab6" class="page justify-center items-center flex-grow">
+        <h1 class="text-3xl font-bold">Lab6</h1>
+      </div>
+    </div>
+
+    <script>
+      function showPage(pageId) {
+        const pages = document.querySelectorAll('.page');
+        pages.forEach((page) => page.classList.remove('active'));
+        document.getElementById(pageId).classList.add('active');
+      }
+    </script>
+  </body>
+</html>
